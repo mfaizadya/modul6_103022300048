@@ -10,10 +10,24 @@ class SayaTubeVideo
 
     public SayaTubeVideo(string title)
     {
+        try
+        {
+            if (title == null)
+            {
+                throw new ArgumentException("Judul tidak boleh kosong");
+            }
+            if (title.Length > 200)
+            {
+                throw new ArgumentException("Judul tidak boleh lebih dari 200 kata");
+            }
+            this.id = GenerateRandomId();
+            this.title = title;
+            this.playCount = 0;
+        } catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
         
-        this.id = GenerateRandomId();
-        this.title = title;
-        this.playCount = 0;
     }
 
     private int GenerateRandomId()
@@ -24,7 +38,30 @@ class SayaTubeVideo
 
     public void IncreasePlayCount(int count)
     {
-        this.playCount += count;
+        try
+        {
+            if (count > 25000000)
+            {
+                throw new ArgumentException("Penambahan play count tidak boleh lebih dari 25000000");
+            }
+            if (count < 0)
+            {
+                throw new ArgumentException("Penambahan play count tidak boleh kurang dari 0");
+            }
+            checked
+            {
+                this.playCount += count;
+            }
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("Error: Terjadi overflow saat menambah play count");
+        }
+
     }
 
     public void PrintVideoDetails()
@@ -54,10 +91,26 @@ public class SayaTubeUser
 
     public SayaTubeUser(string username)
     {
-        Random random = new Random();
-        this.id = random.Next(10000, 99999);
-        this.username = username;
-        this.uploadedVideos = new List<SayaTubeVideo>();
+        try
+        {
+            if (username == null)
+            {
+                throw new ArgumentException("Username tidak boleh kosong");
+            }
+            if (username.Length > 100)
+            {
+                throw new ArgumentException("Username tidak boleh lebih dari 100 karakter");
+            }
+
+            Random random = new Random();
+            this.id = random.Next(10000, 99999);
+            this.username = username;
+            this.uploadedVideos = new List<SayaTubeVideo>();
+        } catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+        
     }
 
     public int GetTotalVideoPlayCount()
@@ -72,7 +125,17 @@ public class SayaTubeUser
 
     public void AddVideo(SayaTubeVideo stv)
     {
-        this.uploadedVideos.Add(stv);
+        try
+        {
+            if (stv == null)
+            {
+                throw new ArgumentException("Video kosong");
+            }
+            this.uploadedVideos.Add(stv);
+        } catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
     }
 
     public void PrintAllVideoPlayCount()
