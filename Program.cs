@@ -37,12 +37,12 @@ class SayaTubeVideo
 
     public int GetPlayCount()
     {
-        return this.playCount;
+        return playCount;
     }
 
     public string GetTitle()
     {
-        return this.title;
+        return title;
     }
 }
 
@@ -78,12 +78,17 @@ public class SayaTubeUser
     public void PrintAllVideoPlayCount()
     {
         Console.WriteLine($"User: {username}");
-        for (int i = 0; i < uploadedVideos.Count i++)
+        for (int i = 0; i < uploadedVideos.Count; i++)
         {
             Console.WriteLine($"Video {i + 1} judul: {uploadedVideos[i].GetTitle()}");
         }
     }
 
+}
+
+class Program
+{
+    static void
 }
 
 
