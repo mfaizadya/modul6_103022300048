@@ -88,7 +88,57 @@ public class SayaTubeUser
 
 class Program
 {
-    static void
+    static void Main(string[] args)
+    {
+        SayaTubeUser userFaiz = new SayaTubeUser("Faiz");
+
+        SayaTubeVideo film1 = new SayaTubeVideo("Review Film Oppenheimer oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film1);
+
+        SayaTubeVideo film2 = new SayaTubeVideo("Review Film Interstellar oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film2);
+
+        SayaTubeVideo film3 = new SayaTubeVideo("Review Film Avengers oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film3);
+
+        SayaTubeVideo film4 = new SayaTubeVideo("Review Film Batman: The Dark Knight oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film4);
+
+        SayaTubeVideo film5 = new SayaTubeVideo("Review Film Fight Club oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film5);
+
+        SayaTubeVideo film6 = new SayaTubeVideo("Review Film The Incridible oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film6);
+
+        SayaTubeVideo film7 = new SayaTubeVideo("Review Film Despicable Me oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film7);
+
+        SayaTubeVideo film8 = new SayaTubeVideo("Review Film Cars oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film8);
+
+        SayaTubeVideo film9 = new SayaTubeVideo("Review Film The Silent Voice oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film9);
+
+        SayaTubeVideo film10 = new SayaTubeVideo("Review Film Ratatouile oleh Faiz");
+        film1.IncreasePlayCount(100000);
+        userFaiz.AddVideo(film10);
+
+        film1.PrintVideoDetails();
+
+        Console.WriteLine($"Total play count: {userFaiz.GetTotalVideoPlayCount()}");
+
+        userFaiz.PrintAllVideoPlayCount();
+
+    }
 }
 
 
